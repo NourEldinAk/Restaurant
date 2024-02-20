@@ -1,4 +1,6 @@
+import { NavLinks } from '@/constants'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
@@ -51,11 +53,11 @@ const Header = (props: Props) => {
     </div>
     <div className='w-full mt-4'>
         <ul className='flex space-x-4 mx-auto w-full justify-center font-bold'>
-            <li>Home</li>
-            <li>Menu</li>
-            <li>Dishes</li>
-            <li>Cart</li>
-            <li>Contact</li>
+            {NavLinks.map((link)=>(
+                <Link href={link.href} key={link.key} className='hover:text-primary'>
+                    {link.text}
+                </Link>
+            ))}
         </ul>
     </div>
    </nav>
