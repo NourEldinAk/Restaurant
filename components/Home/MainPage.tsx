@@ -1,13 +1,16 @@
 import React from 'react'
 import Hero from './Hero'
-import Content from './Content'
 import Footer from '../Footer'
+import Offer from './Offer'
+import Featured from './Featured'
 
 const MainPage = () => {
   return (
     <>
     <Hero/>
-    <Content/>
+    <Offer/>
+    <Featured/>
+
     <Footer/>
     </>
   )

@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <footer className='border-t-2 border-primary text-zinc-200 place-items-center h-full mt-24 md:mt-9
-    grid grid-rows-3 md:grid-rows-1 md:grid-cols-3  md:px-12 text-center  mb-5 pt-3 text-sm space-y-8 '>
+    <footer className='border-t-2 border-primary text-zinc-200 place-items-center h-full 
+    grid grid-rows-3 md:grid-rows-1 md:grid-cols-3  md:px-12 text-center pb-12 pt-3 text-sm space-y-8 bg-secondary '>
      <div className='space-y-3 w-full flex flex-col items-center justify-center  '>
           <h1 className='font-bold text-primary text-lg '>
             <Image

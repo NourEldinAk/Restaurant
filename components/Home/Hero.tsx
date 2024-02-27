@@ -7,7 +7,7 @@ const gloriaHallelujah = Gloria_Hallelujah({ subsets: ["latin"] , weight:['400']
 const Hero = () => {
 
   return (
-    <div className={`w-full  text-white  h-[calc(100vh-18rem)] flex items-center justify-center ${gloriaHallelujah.className}`}>
+    <div className={`w-full  text-white  h-[calc(100vh-10.5rem)] md:h-[calc(100vh-15.4rem)]  flex items-center justify-center ${gloriaHallelujah.className}`}>
       <div className='flex items-center flex-col justify-center gap-4'>
         <h1 className={`text-4xl md:text-6xl rotate-6 min-h-full gloria-font text-center`} >Tasty & Delicious Food</h1>
         <Button title="Book A Table" bgColor="bg-primary"></Button>
