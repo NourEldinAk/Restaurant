@@ -24,7 +24,8 @@ const Featured = () => {
               width={1000}
               height={1000}
               className='object-contain h-full flex-1 w-full rounded-b-lg mx-auto rounded-lg opacity-80'
-              ></Image>}
+              ></Image>
+              }
             </div>
             {/* text container */}
             <div className='flex-1 text-center px-4 space-y-3'>

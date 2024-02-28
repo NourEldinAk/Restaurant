@@ -1,16 +1,33 @@
+"use client";
+
 import { NavLinks } from '@/constants'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MenuIcon from './MobileMenu'
 import MobileMenu from './MobileMenu'
+import { usePathname } from 'next/navigation'
 import CartIcon from './CartIcon'
 
 type Props = {}
 
 const Header = (props: Props) => {
+    const [bgOpacity, setBgOpacity] = useState('bg-opacity-100');
+    const pathname = usePathname();
+
+    useEffect(() => {
+      if ( pathname === '/') {
+        setBgOpacity('bg-opacity-0');
+      } else {
+        setBgOpacity('bg-opacity-100');
+      }
+    }, [pathname]);
+  
   return (
-   <nav className='border-b-2 border-primary  md:px-6 py-6 w-full  mx-auto text-zinc-200'>
+   <nav className={`border-b-2 border-primary  md:px-6 py-6 w-full bg-secondary   mx-auto text-zinc-200
+   ${bgOpacity}
+   `}
+   >
     <div className='grid grid-cols-2 md:grid-cols-3 place-items-center '>
     <div className=' flex-col items-center text-center hidden md:flex'>
                 <div className='border-[3px] p-1 border-primary rounded-full mb-2 text-primary '>
