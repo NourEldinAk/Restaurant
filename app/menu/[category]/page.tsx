@@ -12,7 +12,7 @@ const CategoryPage = () => {
   return (
     <div className='text-primary flex flex-wrap'>
       {traditionals.map((item)=>(
-        <Link href={`/products/${item.id}`} key={item.id} className='w-full h-[60vh] border-2 border-primary
+        <Link href={`/product/${item.id}`} key={item.id} className='w-full h-[60vh] border-2 border-primary
         md:w-1/2 lg:w-1/3 p-6 
         '>
           {/* Image container */}
@@ -22,8 +22,8 @@ const CategoryPage = () => {
               </Image>}
           </div>
           {/* Text Container */}
-          <div className='flex items-center justify-between  md:px-12 mt-6 '>
-            <Button title="Add To Cart" bgColor='rotate-0 bg-primary text-secondary text-sm mt-0'></Button>
+          <div className='flex items-center justify-between  xl:px-12 mt-12 '>
+            <Button title="Add To Cart" bgColor='rotate-0 bg-primary text-secondary  mt-[0.1px] lg:text-sm'></Button>
             <HeaderText title={item.title} size='text-xl md:text-3xl '></HeaderText>
             <span className='text-lg font-bold border-2 border-primary p-2 rounded-lg text-secondary bg-primary'>${item.price}</span>
           </div>

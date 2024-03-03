@@ -3,9 +3,10 @@ import { title } from "process";
 export const NavLinks = [
     {href:'/', key:'home', text:'Home'},
     {href:'/menu', key:'menu', text:'Menu'},
-    {href:'/reserve', key:'reserve', text:'Reserve'},
+    // {href:'/reserve', key:'reserve', text:'Reserve'},
     // {href:'/cart', key:'cart', text:'Cart'},
-    {href:'/contact', key:'contact', text:'Contact'},
+    {href:'/orders', key:'orders', text:'Orders'},
+    {href:'/login', key:'login', text:'Login'}
 ]
 
 type Product = {
@@ -220,7 +221,30 @@ export const categories:Categories = [
         title:"Traditional",
         slug:"traditional",
         img:"/imgs/Pasta.jpg",
-        bgColor: "bg-zinc-300",
+        bgColor: "bg-[#eeeeee]",
         textColor:"text-black-75",
     }
 ]
+
+export const  singleProduct: Product=
+    {
+        id:1,
+        title:"Mabtn",
+        desc:"combining premium ingredients for a taste sensation that's simply irresistible.",
+        img:"/imgs/Mabtn.jpg",
+        price:40,
+        options:[
+            {
+                title:"Small",
+                additionalPrice:0
+            },
+            {
+                title:"Medium",
+                additionalPrice:4
+            },
+            {
+                title:"Large",
+                additionalPrice:6
+            }
+        ]
+    }
