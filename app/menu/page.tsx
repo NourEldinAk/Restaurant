@@ -1,19 +1,33 @@
-import { categories } from '@/constants';
 import { Gloria_Hallelujah } from 'next/font/google';
 import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 
 const gloriaHallelujah = Gloria_Hallelujah({ subsets: ["latin"] , weight:['400']}); // Initialize Gloria Hallelujah font
-const MenuPage = () => {
 
+const getCategories = async()=>{
+  const res = await fetch(`http://localhost:3000/api/categories`, {
+  cache:"no-store"
+})
+  if(!res.ok){
+    throw new Error("failed");
+  }
+
+  return res.json();
+}
+
+
+
+const MenuPage = async () => {
+
+  const categories = await getCategories();
   return (
     <div className={`rounded-lg  lg:gap-12 px-24 mt-4 w-full mx-auto py-12 overflow-hidden  h-[calc(100vh-10.5rem)] lg:h-[calc(100vh-15.4rem)]
     grid max-lg:grid-rows-3 bg-contain lg:grid-cols-3 text-center max-lg:place-content-center
     text-white 
     ${gloriaHallelujah.className}` }>
 
-      {categories.map((category)=>(
+      {categories.map((category:Category)=>(
         <Link href={`/menu/${category.slug}`} key={category.id} className='bg-secondary lg:w-full h-full relative rounded-lg shadow-lg shadow-black cursor-pointer
         transfrom hover:opacity-95 hover:scale-105 transition-all duration-300 w-screen
          overflow-hidden
@@ -27,7 +41,7 @@ const MenuPage = () => {
           <h1 className={`absolute bottom-0 z-1  px-6 lg:px-3 py-2 
            lg:text-xl lg:w-[100%]
            tracking-widest font-bold rounded-r-lg 
-          ${category.textColor} ${category.bgColor}` }>{category.title}</h1>
+          ${category.color}` }>{category.title}</h1>
           
           </Link>
       )) }

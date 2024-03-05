@@ -3,9 +3,20 @@ import React from 'react'
 import Button from '../Button'
 import { Gloria_Hallelujah } from 'next/font/google';
 
-import { featuredProducts } from '@/constants'
+
 const gloriaHallelujah = Gloria_Hallelujah({ subsets: ["latin"] , weight:['400']});
-const Featured = () => {
+
+const getProducts = async()=>{
+  const res = await fetch("http://localhost:3000/api/products",{
+    cache:"no-store"
+  })
+  if(!res.ok){
+    throw new Error("failed")
+  }
+  return res.json();
+}
+const Featured = async () => {
+  const featuredProducts:Products = await getProducts()
   return (
     <div className='w-screen overflow-x-scroll scrollbar-custom text-primary '>
       {/* Wrapper */}

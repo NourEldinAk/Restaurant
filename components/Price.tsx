@@ -39,9 +39,14 @@ const Price = ({price,id,options}:Props) => {
                 <button className='text-xl px-2   hover:bg-primary text-primary hover:text-secondary  transition-all duration-300 ry' onClick={()=>setQuantity(prev=>prev+1)}>{'>'}</button>
             </div>
         </div>
-          <Button bgColor='bg-primary text-secondary
+          <button className='bg-primary text-secondary
            md:w-64 text-xs rotate-0 text-center
-            mt-0 rounded-none border-2 md:border-primary md:py-4 md:text-sm px-3 py-1  w-full ' title='Add To Cart'></Button>
+            rounded-none border-2 border-primary md:border-primary md:py-4 md:text-sm px-3
+             py-[14px] w-full md:mt-0 mt-0 font-semibold hover:text-white hover:bg-secondary transition-all duration-300'>
+              <span className='hidden md:block'>Add to Cart</span>
+              <span className='block md:hidden text-base '>Add</span>
+            </button >
+            
       </div>
     </div>
   )

@@ -8,6 +8,7 @@ import MenuIcon from './MobileMenu'
 import MobileMenu from './MobileMenu'
 import { usePathname } from 'next/navigation'
 import CartIcon from './CartIcon'
+import UserLinks from './UserLinks';
 
 type Props = {}
 
@@ -83,6 +84,7 @@ const Header = (props: Props) => {
                 </Link>
             ))}
             <CartIcon colors="bg-primary text-secondary" transition=' hover:text-primary hover:rotate-6 transition-all duration-300 hover:scale-110'/>
+            <UserLinks/>
         </ul>
     </div>
 

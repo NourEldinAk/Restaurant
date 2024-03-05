@@ -5,8 +5,6 @@ export const NavLinks = [
     {href:'/menu', key:'menu', text:'Menu'},
     // {href:'/reserve', key:'reserve', text:'Reserve'},
     // {href:'/cart', key:'cart', text:'Cart'},
-    {href:'/orders', key:'orders', text:'Orders'},
-    {href:'/login', key:'login', text:'Login'}
 ]
 
 type Product = {
@@ -194,8 +192,7 @@ type Category = {
     id:number,
     title:string,
     img?:string,
-    bgColor:string,
-    textColor:string,
+    color:string,
     slug:string,
 }
 type Categories = Category[];
@@ -206,23 +203,20 @@ export const categories:Categories = [
         title:"Fast Food",
         slug:"fast-food",
         img:"/fast-food.jpg",
-        bgColor: "bg-primary",
-        textColor:"text-secondary",
+        color: "bg-primary text-secondary",
     },
     {   id:2,
         title:"Fresh Juices",
         slug:'fresh-juices',
         img:"/juices.jpg",
-        bgColor: "bg-secondary",
-        textColor:"text-[#f3cc80]",
+        color: "bg-secondary text-[#f3cc80]",
     },
     { 
         id:3,
         title:"Traditional",
         slug:"traditional",
         img:"/imgs/Pasta.jpg",
-        bgColor: "bg-[#eeeeee]",
-        textColor:"text-black-75",
+        color: "bg-[#eeeeee] text-black-75",
     }
 ]
 

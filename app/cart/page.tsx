@@ -56,7 +56,7 @@ const CartPage = () => {
           <span className="">TOTAL(INCL. VAT)</span>
           <span className="font-bold">$81.70</span>
         </div>
-        <button className="hover:bg-red-400 bg-secondary hover:text-white 
+        <button className="hover:border-green-500 hover:bg-white border-2 bg-secondary hover:text-green-500  hover:font-semibold
          transition-all duration-300
          p-3 rounded-md w-1/2 self-end text-white mt-6 tracking-widest">
           CHECKOUT

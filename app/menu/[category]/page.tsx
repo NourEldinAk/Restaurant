@@ -1,17 +1,36 @@
 import Button from '@/components/Button';
 import HeaderText from '@/components/HeaderText';
-import { categories, traditionals } from '@/constants';
 import { Gloria_Hallelujah } from 'next/font/google';
 import Image from 'next/image'
 import Link from 'next/link';
 import React from 'react'
 
+const getProducts = async(category:string)=>{
+  const res = await fetch(`http://localhost:3000/api/products?cat=${category}`, {
+  cache:"no-store"
+})
+  if(!res.ok){
+    throw new Error("failed");
+  }
+
+  return res.json();
+}
+
+type Props = {
+params : {category:string}
+}
+
 const gloriaHallelujah = Gloria_Hallelujah({ subsets: ["latin"] , weight:['400']}); // Initialize Gloria Hallelujah font
-const CategoryPage = () => {
+
+
+const CategoryPage = async ({params}:Props) => {
+
+const products:Products = await getProducts(params.category);
+
 
   return (
     <div className='text-primary flex flex-wrap'>
-      {traditionals.map((item)=>(
+      {products.map((item)=>(
         <Link href={`/product/${item.id}`} key={item.id} className='w-full h-[60vh] border-2 border-primary
         md:w-1/2 lg:w-1/3 p-6 
         '>
