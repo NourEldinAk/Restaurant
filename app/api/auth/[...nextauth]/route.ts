@@ -1,7 +1,6 @@
 import { AuthOptions } from "@/utils/AuthOptions";
 import NextAuth from "next-auth/next";
 
-import { PrismaAdapter } from "@next-auth/prisma-adapter"
 
 const handler = NextAuth(AuthOptions)
 
