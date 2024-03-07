@@ -1,8 +1,21 @@
 import Price from '@/components/Price'
 import Image from 'next/image'
-import React from 'react'
-import { singleProduct } from '@/constants'
-const SingleProduct = () => {
+import React, { cache } from 'react'
+
+const getProduct = async (id: string)=>{
+  const res = await fetch(`http://localhost:3000/api/products/${id}`,{
+    cache:"no-store",
+  })
+  if(!res.ok){
+    throw new Error ("Failed!");
+  }
+
+  return res.json()
+}
+
+const SingleProduct = async ({params} : {params : {id:string}}) => {
+  const singleProduct:Product = await getProduct(params.id);
+
   return (
 
       <div className='h-full  bg-secondary flex flex-col lg:flex-row lg:p-24 w-screen space-y-8 py-12'>
@@ -22,7 +35,7 @@ const SingleProduct = () => {
       <div className='lg:w-1/2 w-screen text-primary flex-col items-center justify-center my-auto text-center space-y-12 px-16'>
         <h1 className='text-2xl lg:text-4xl font-bold    py-3 px-2'>{singleProduct.title}</h1>
         <p className='text-sm lg:text-lg   text-zinc-200 lg:px-16 w-full'>{singleProduct.desc}</p>
-        <Price id={singleProduct.id} price={singleProduct.price} options={singleProduct.options}></Price>
+        <Price product={singleProduct} ></Price>
       </div>
       </div>
 

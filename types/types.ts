@@ -8,7 +8,7 @@ type Category = {
 type Categories = Category[];
 
 type Product = {
-    id:number;
+    id:string;
     title: string;
     desc?:string;
     img?:string;
@@ -16,3 +16,23 @@ type Product = {
     options?: {title: string; additionalPrice:number}[];
 }
 type Products = Product[]
+
+type OrderType = {
+    id: string,
+    userEmail: string,
+    status: string,
+    products : CartItemType[],
+    createdAt : Date,
+    price: number,
+    intent_id?: string
+
+}
+
+type CartItemType = {
+    id: string,
+    title: string,
+    price: number,
+    img?: string,
+    optionTitle?: string,
+    quantity: number
+}

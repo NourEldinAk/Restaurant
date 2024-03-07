@@ -4,26 +4,29 @@ import Button from './Button';
 
 type Props= {
     price:number,
-    id:number,
+    id:string,
     options?: {title: string; additionalPrice:number}[]
 }
 
-const Price = ({price,id,options}:Props) => {
+const Price = ({product}: {product:Product}) => {
+  
   const [selected, setSelected] = useState(0)
-  const [total, setTotal] = useState(price)
+  const [total, setTotal] = useState(Number(product.price))
   const [quantity, setQuantity] = useState(1)
   useEffect(() => {
-  
-      setTotal(
-        quantity*(options? price+options[selected].additionalPrice : price)
-      )     
-  }, [quantity,selected,options,price])
+    console.log(typeof(product.price))
+      if(product.options?.length){
+        setTotal(
+          quantity * product.price + Number(product.options[selected].additionalPrice )
+        )     
+      }
+  }, [quantity,selected,product])
   
   return (
     <div className='space-y-8'>
-      <h1 className='text-2xl font-bold'>${total.toFixed(2)}</h1>
+      <h1 className='text-2xl font-bold'>${total}</h1>
       <div className='flex justify-around items-center'>
-        {options?.map((option,index)=>(
+        {product.options?.length && product.options.map((option,index)=>(
             <button className={`border-2 border-primary
              px-3 py-2 font-bold hover:bg-primary transition-all duration-300
               hover:text-secondary ${selected === index ? 'bg-primary text-secondary' : "bg-secondary text-primary"} }`
