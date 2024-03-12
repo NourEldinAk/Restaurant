@@ -9,8 +9,10 @@ import MobileMenu from './MobileMenu'
 import { usePathname } from 'next/navigation'
 import CartIcon from './CartIcon'
 import UserLinks from './UserLinks';
+import { useCartStore } from '@/utils/store';
 
 type Props = {}
+
 
 const Header = (props: Props) => {
     const [bgOpacity, setBgOpacity] = useState('bg-opacity-100');

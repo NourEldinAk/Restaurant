@@ -1,4 +1,4 @@
-type Category = {
+export type Category = {
     id:number,
     title:string,
     img?:string,
@@ -7,7 +7,7 @@ type Category = {
 }
 type Categories = Category[];
 
-type Product = {
+export type Product = {
     id:string;
     title: string;
     desc?:string;
@@ -15,9 +15,9 @@ type Product = {
     price:number;
     options?: {title: string; additionalPrice:number}[];
 }
-type Products = Product[]
+export type Products = Product[]
 
-type OrderType = {
+export type OrderType = {
     id: string,
     userEmail: string,
     status: string,
@@ -28,11 +28,22 @@ type OrderType = {
 
 }
 
-type CartItemType = {
+export type CartItemType = {
     id: string,
     title: string,
     price: number,
     img?: string,
     optionTitle?: string,
     quantity: number
+}
+
+export type CartType = {
+    products : CartItemType[],
+    totalItems : number,
+    totalPrice : number,
+}
+
+export type ActionTypes = {
+    addToCart : (item:CartItemType) => void;
+    removeFromCart : (item:CartItemType) => void;
 }
