@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Button from '../Button'
 import { Gloria_Hallelujah } from 'next/font/google';
+import { Products } from '@/types/types';
 
 
 const gloriaHallelujah = Gloria_Hallelujah({ subsets: ["latin"] , weight:['400']});

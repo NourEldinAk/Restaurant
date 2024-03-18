@@ -56,6 +56,7 @@ const CartPage = () => {
           CHECKOUT
         </button>
       </div>
+      
     </div>
   );
 };

@@ -1,4 +1,6 @@
+import DeleteButton from '@/components/DeleteButton'
 import Price from '@/components/Price'
+import { Product } from '@/types/types'
 import Image from 'next/image'
 import React, { cache } from 'react'
 
@@ -18,7 +20,7 @@ const SingleProduct = async ({params} : {params : {id:string}}) => {
 
   return (
 
-      <div className='h-full  bg-secondary flex flex-col lg:flex-row lg:p-24 w-screen space-y-8 py-12'>
+      <div className='h-full  bg-secondary flex flex-col lg:flex-row lg:p-24 w-screen space-y-8 py-12 relative'>
       {/* Image container */}
       <div className='h-full flex-1 relative flex flex-col justify-center items-center space-y-12 w-screen '>
        {singleProduct.img && <Image
@@ -37,6 +39,7 @@ const SingleProduct = async ({params} : {params : {id:string}}) => {
         <p className='text-sm lg:text-lg   text-zinc-200 lg:px-16 w-full'>{singleProduct.desc}</p>
         <Price product={singleProduct} ></Price>
       </div>
+      <DeleteButton id={singleProduct.id}/>
       </div>
 
   )
